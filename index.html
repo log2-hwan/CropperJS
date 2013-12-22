@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="cropper.js"></script>
+		<script>
+			window.onload = function() {
+				var cropper = new Cropper('dirt.png');
+				document.querySelector('#get').addEventListener('click',function() {
+					document.querySelector('#data').src = 'data:image/png;base64,'+cropper.getCroppedBase64();
+				},false);
+				document.body.appendChild(cropper.el);
+			};
+		</script>
+	</head>
+	<body>
+		<button id="get">get</button>
+		<img id="data" />
+	</body>
+</html>
